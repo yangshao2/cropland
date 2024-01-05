@@ -13,6 +13,6 @@ outfile1=sprintf('/media/newhd/yshao/output/sg%d/sout_%s',j,sprintf('%04d',i));
         
         temp=[temp a];
 end
-f=sprintf('sub_%d',j);
+f=sprintf('/home/yshao/jie/sub_%d',j);
 save(f,"temp","-v7.3")
 end
