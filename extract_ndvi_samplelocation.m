@@ -11,7 +11,7 @@ s_sig = ndvi(sub2ind(size(ndvi), row1s,col1s));
 d_sig = ndvi(sub2ind(size(ndvi), row2s,col2s));
 
 temp1=[temp1 s_sig];
-temp2=[etmp2 d_sig];
+temp2=[temp2 d_sig];
 
     end
 end
