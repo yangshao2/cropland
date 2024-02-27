@@ -1,0 +1,46 @@
+!pip install statsmodels==0.12.1
+
+import numpy as np
+import pandas as pd 
+from pandas import read_csv
+import matplotlib.pyplot as plt
+from matplotlib import pyplot
+from statsmodels.tsa.seasonal import seasonal_decompose
+import statsmodels.api as sm
+
+from sklearn.metrics import mean_absolute_error
+from sklearn.metrics import mean_squared_error
+from datetime import datetime
+startTime = datetime.now()
+
+df1 = pd.read_csv('t1.csv', delimiter=';')
+df=df1['sig']
+print (df.head())
+print ('Mean:',np.mean(df))
+
+from statsmodels.tsa.stattools import adfuller
+from statsmodels.tsa.seasonal import seasonal_decompose
+from statsmodels.tsa.holtwinters import ExponentialSmoothing, SimpleExpSmoothing, Holt
+from pylab import rcParams
+rcParams['figure.figsize'] = 8, 6
+SP=13
+PP=15
+from statsmodels.tsa.seasonal import STL
+decomposition = STL(df, seasonal=23, period=46)
+res = decomposition.fit()
+fig = res.plot()
+plt.show()
+FileName = "STL-M"+str(SP)+"-"+str(PP)+"-"+str(datetime.now()).replace(":", ".")
+fig.savefig(FileName+'.png', dpi=300)
+
+
+# Create a new DataFrame with the decomposition components
+decomposed_data = pd.DataFrame({
+    'trend': res.trend,
+    'seasonal': res.seasonal,
+    'resid': res.resid,
+    'observed': df
+})
+
+# Export the decomposition components to CSV
+decomposed_data.to_csv('s.csv')
