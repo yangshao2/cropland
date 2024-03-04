@@ -12,10 +12,8 @@ load(filename);
 dcrop=u(:,1);
 scrop=u(:,2);
 
-
-%[pk,lk,w,p] = findpeaks(dcrop(1:92),'MinPeakHeight',0.3,'MinPeakDistance',4,'Sortstr','descend');
 subplot(1,2,1)
-findpeaks(scrop(1:92),'MinPeakHeight',0.3,'MinPeakDistance',10,'Annotate','extents')
+findpeaks(scrop(1:92),'MinPeakHeight',0.35,'MinPeakDistance',10,'Annotate','extents')
 
 subplot(1,2,2)
-findpeaks(dcrop(1:92),'MinPeakHeight',0.3,'MinPeakDistance',10,'Annotate','extents')
+findpeaks(dcrop(1:92),'MinPeakHeight',0.35,'MinPeakDistance',10,'Annotate','extents')
