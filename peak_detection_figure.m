@@ -1,5 +1,5 @@
 % URL of the .mat file on GitHub (use the direct link from the "Raw" button)
-url = 'https://github.com/yangshao2/cropland/raw/master/mfigure.mat'; 
+%url = 'https://github.com/yangshao2/cropland/raw/master/mfigure.mat'; 
 % The local filename to save the .mat file
 filename = 'localfile.mat'; 
 
